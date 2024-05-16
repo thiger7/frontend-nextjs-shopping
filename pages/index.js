@@ -1,12 +1,17 @@
-import { Alert, Button } from "reactstrap";
+import { Alert, Button, Col, InputGroup, InputGroupText, Row } from "reactstrap";
 
 const index = () => {
   return (
-    <div>
-      <div>
-        <Alert color="primary">Hello Project</Alert>
-        <Button color="primary">Hello from nextjs</Button>
-      </div>
+    <div className="container-fluid">
+      <Row>
+        <Col>
+          <div className="search">
+            <InputGroup>
+              <InputGroupText>探す</InputGroupText>
+            </InputGroup>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 };
