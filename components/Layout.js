@@ -25,17 +25,17 @@ const Layout = props => {
         <Nav className="navbar navbar-dark bg-dark">
           <NavItem>
             <Link href="/">
-              <a className="navbar-brand">サインイン</a>
+              <a className="navbar-brand">ホーム</a>
             </Link>
           </NavItem>
           <NavItem className="ml-auto">
-            <Link href="/register">
-              <a className="nav-link">サインアップ</a>
+            <Link href="/">
+              <a className="nav-link">サインイン</a>
             </Link>
           </NavItem>
           <NavItem>
-            <Link href="/">
-              <a className="navbar-link">ホーム</a>
+            <Link href="/register">
+              <a className="nav-link">サインアップ</a>
             </Link>
           </NavItem>
         </Nav>
