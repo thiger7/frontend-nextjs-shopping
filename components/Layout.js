@@ -29,7 +29,7 @@ const Layout = props => {
             </Link>
           </NavItem>
           <NavItem className="ml-auto">
-            <Link href="/">
+            <Link href="/login">
               <a className="nav-link">サインイン</a>
             </Link>
           </NavItem>
