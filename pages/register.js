@@ -8,8 +8,18 @@ import {
   Label,
   Row,
 } from "reactstrap";
+import { registerUser } from "../lib/auth";
+import { useState } from "react";
 
 const register = () => {
+  const [data, setData] = useState({ username: "", email: "", password: "" });
+
+  const handleRegister = () => {
+    registerUser();
+  };
+
+  console.log(data);
+
   return (
     <Container>
       <Row>
@@ -28,6 +38,9 @@ const register = () => {
                     type="text"
                     name="username"
                     style={{ height: 50, fontSize: "1.2rem" }}
+                    onChange={e =>
+                      setData({ ...data, username: e.target.value })
+                    }
                   />
                 </FormGroup>
                 <FormGroup>
@@ -36,6 +49,7 @@ const register = () => {
                     type="email"
                     name="email"
                     style={{ height: 50, fontSize: "1.2rem" }}
+                    onChange={e => setData({ ...data, email: e.target.value })}
                   />
                 </FormGroup>
                 <FormGroup>
@@ -44,6 +58,9 @@ const register = () => {
                     type="password"
                     name="password"
                     style={{ height: 50, fontSize: "1.2rem" }}
+                    onChange={e =>
+                      setData({ ...data, password: e.target.value })
+                    }
                   />
                 </FormGroup>
                 <span>
@@ -51,7 +68,13 @@ const register = () => {
                     <small>パスワードをお忘れですか？</small>
                   </a>
                 </span>
-                <Button style={{ float: "right", width: 120 }} color="primary">
+                <Button
+                  onClick={() => {
+                    handleRegister();
+                  }}
+                  style={{ float: "right", width: 120 }}
+                  color="primary"
+                >
                   登録
                 </Button>
               </fieldset>
@@ -70,7 +93,7 @@ const register = () => {
             margin-bottom: 30px;
           }
           .wrapper {
-            padding: 10px 30px 20px 30px
+            padding: 10px 30px 20px 30px;
           }
         `}
       </style>
