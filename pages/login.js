@@ -20,6 +20,7 @@ const Login = () => {
   const handleLogin = () => {
     login(data.identifier, data.password)
     .then(res => {
+      console.log(res);
       appContext.setUser(res.data.user);
       console.log(res.data.user);
     })
