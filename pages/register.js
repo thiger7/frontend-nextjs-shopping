@@ -20,7 +20,7 @@ const register = () => {
     registerUser(data.username, data.email, data.password)
       .then(() => {
         console.log(res);
-        appContext.setUser({ ...data });
+        appContext.setUser(res.data.user);
       })
       .catch(err => console.log(err));
   };
