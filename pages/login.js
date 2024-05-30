@@ -12,18 +12,11 @@ import { registerUser } from "../lib/auth";
 import { useContext, useState } from "react";
 import AppContext from "../context/AppContext";
 
-const register = () => {
+const login = () => {
   const appContext = useContext(AppContext);
-  const [data, setData] = useState({ username: "", email: "", password: "" });
+  const [data, setData] = useState({ identifier: "", password: "" });
 
-  const handleRegister = () => {
-    registerUser(data.username, data.email, data.password)
-      .then(() => {
-        console.log(res);
-        appContext.setUser({ ...data });
-      })
-      .catch(err => console.log(err));
-  };
+  const handleLogin = () => {};
 
   return (
     <Container>
@@ -31,30 +24,18 @@ const register = () => {
         <Col>
           <div className="paper">
             <div className="header">
-              <h2>ユーザー登録</h2>
+              <h2>ログイン</h2>
             </div>
           </div>
           <section className="wrapper">
             <Form>
               <fieldset>
                 <FormGroup>
-                  <Label>ユーザー名：</Label>
-                  <Input
-                    type="text"
-                    name="username"
-                    style={{ height: 50, fontSize: "1.2rem" }}
-                    onChange={e =>
-                      setData({ ...data, username: e.target.value })
-                    }
-                  />
-                </FormGroup>
-                <FormGroup>
                   <Label>メールアドレス：</Label>
                   <Input
                     type="email"
-                    name="email"
+                    name="identifier"
                     style={{ height: 50, fontSize: "1.2rem" }}
-                    onChange={e => setData({ ...data, email: e.target.value })}
                   />
                 </FormGroup>
                 <FormGroup>
@@ -63,9 +44,6 @@ const register = () => {
                     type="password"
                     name="password"
                     style={{ height: 50, fontSize: "1.2rem" }}
-                    onChange={e =>
-                      setData({ ...data, password: e.target.value })
-                    }
                   />
                 </FormGroup>
                 <span>
@@ -75,12 +53,12 @@ const register = () => {
                 </span>
                 <Button
                   onClick={() => {
-                    handleRegister();
+                    handleLogin();
                   }}
                   style={{ float: "right", width: 120 }}
                   color="primary"
                 >
-                  登録
+                  ログイン
                 </Button>
               </fieldset>
             </Form>
@@ -106,4 +84,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default login;
